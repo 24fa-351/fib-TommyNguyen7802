@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
     }
 
    sscanf(argv[1], "%d", &user_entered_integer);
-   sscanf(argv[2], "%c", &user_choice_i_or_r);
+   sscanf(argv[2], "%c", user_choice_i_or_r);
    strncpy(user_file_name, argv[3], sizeof(user_file_name) - 1);
    user_file_name[sizeof(user_file_name) - 1] = '\0';
 
