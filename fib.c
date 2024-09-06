@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-long long int iterative_fib(int addedValue, long long int prev_term, long long int prev_2_terms);
-long long int recursive_fib(int addedValue, long long int prev_term, long long int prev_2_terms);
+unsigned long long int iterative_fib(int addedValue, unsigned long long int prev_term, unsigned long long int prev_2_terms);
+unsigned long long int recursive_fib(int addedValue, unsigned long long int prev_term, unsigned long long int prev_2_terms);
 
 int main(int argc, char *argv[])
 {
@@ -13,8 +13,8 @@ int main(int argc, char *argv[])
    FILE* user_file;
    int number_in_file;
    int user_entered_integer;
-   long long int prev_term = 1;
-   long long int prev_2_terms = 0;
+   unsigned long long int prev_term = 1;
+   unsigned long long int prev_2_terms = 0;
 
    if (argc != 4) {
         printf("Usage: %s <integer> <i/r> <filename>\n", argv[0]);
@@ -37,25 +37,25 @@ int main(int argc, char *argv[])
 
    if (strcmp(ITERATIVE, user_choice_i_or_r) == 0)
    {
-        long long int result = iterative_fib(addedValue, prev_term, prev_2_terms);
-        printf("%lld", result);
+        unsigned long long int result = iterative_fib(addedValue, prev_term, prev_2_terms);
+        printf("%llu", result);
    }
 
    if (strcmp(RECURSIVE, user_choice_i_or_r) == 0)
    {
-        long long int result = recursive_fib(addedValue, prev_term, prev_2_terms);
-        printf("%lld", result);
+        unsigned long long int result = recursive_fib(addedValue, prev_term, prev_2_terms);
+        printf("%llu", result);
    }
    return 0;
 }
 
-long long int iterative_fib(int addedValue, long long int prev_term, long long int prev_2_terms)
+unsigned long long int iterative_fib(int addedValue, unsigned long long int prev_term, unsigned long long int prev_2_terms)
 {
     for (int i = 1; i <= addedValue; i++)
     {
         if (i > 2)
         {
-            long long int current_term = prev_term + prev_2_terms;
+            unsigned long long int current_term = prev_term + prev_2_terms;
             prev_2_terms = prev_term;
             prev_term = current_term;
         }
@@ -63,7 +63,7 @@ long long int iterative_fib(int addedValue, long long int prev_term, long long i
     return prev_term;
 }
 
-long long int recursive_fib(int addedValue, long long int prev_term, long long int prev_2_terms)
+unsigned long long int recursive_fib(int addedValue, unsigned long long int prev_term, unsigned long long int prev_2_terms)
 {
     if (addedValue <= 2)
     {
